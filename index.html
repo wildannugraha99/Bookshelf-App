@@ -20,24 +20,24 @@
         <h2>Masukkan Buku Baru</h2>
         <form id="inputBook">
             <div class="input">
-                <label for="inputBookTitle">Judul</label>
+                <label for="inputBookTitle">Judul: </label><br>
                 <input id="inputBookTitle" type="text" required>
             </div>
             <div class="input">
-                <label for="inputBookAuthor">Penulis</label>
+                <label for="inputBookAuthor">Penulis:</label><br>
                 <input id="inputBookAuthor" type="text" required>
             </div>
             <div class="input">
-                <label for="inputBookYear">Tahun</label>
+                <label for="inputBookYear">Tahun:</label><br>
                 <input id="inputBookYear" type="number" required>
             </div>
-            <form action="/action_page.php">
+            
             <div class="inputChecked">
                 <input id='inputChecked' type="checkbox" value="other" >
                 <label for="inputChecked">Selesai dibaca</label>
-               </div>
-                <button id="bookSubmit" type="submit" >Masukkan Buku ke rak</button>
-            </form>
+            </div>
+            <button id="bookSubmit" type="submit" >Masukkan Buku ke rak</button>
+            
            
         </form>
     </section>
@@ -48,10 +48,8 @@
 <div id="result">
     <section class="book_shelf">
         <h2>Belum selesai dibaca</h2>
-        <div id="incompleteBookshelfList" class="book_list">
-            
-           
         
+        <div id="incompleteBookshelfList" class="book_list">
         </div>
     </section>
 
@@ -66,6 +64,6 @@
 <script src="data.js" type="text/javascript"></script>
 <script src="script.js" type="text/javascript"></script>
 <script src="main.js" type="text/javascript"></script>
-
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

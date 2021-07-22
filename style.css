@@ -1,197 +1,205 @@
-* {
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+
 body{
-    background-color: rgb(46, 46, 46);
-    background-image: url(topography.svg);
+    background-color: #e8f0fe;
+    background-image: url(undraw_Books_l33t.svg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
 }
-body, input, button {
-    font-family: 'Open Sans', sans-serif;
-}
-
-input{
-    font-size: 16px;
-}
-.inputChecked{
-    color: cornsilk;
-    font-family: 'Open Sans', sans-serif;
-    margin:5px 0 0 20px;
-    font-size: 20px;
-}
-
-.head_bar {
-   
-    padding: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(33, 34, 34);
-    color: cornsilk;
-    box-shadow: 8px 8px 8px black;
-}
-
-main {
-    max-width: 800px;
-    width: 80%;
-    margin: 0 auto;
-    padding: 16px;
-
-}
-
-.input_section {
-   
-    box-shadow: 8px 8px 8px black;
-    background-color: rgb(33, 34, 34);
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
-    border: 0 solid black;
-    border-radius: 10px;
-}
-
-.input_section > h2 {
+.head_bar{
     text-align: center;
-    color: cornsilk;
+    border: 1px solid whitesmoke;
+    padding: 2% 0;
 }
 
-.input_section > form > .input {
-    margin: 8px ;
-    padding-bottom: 1%;
-}
-
-
-.input_section > form > button {
-    background-color:  rgb(70, 71, 71);
-    color: cornsilk;
-    border-radius: 5px;
-    display: block;
-    width: 30%;
-    padding:2%;
-    cursor: pointer;
+.input_section{
     margin: auto;
-    font-size: 100%;
-    transition: 1s;
-}
-
-.input_section > form > button:hover{
-    width: 40%;
+    margin-top: 2.5%;
+    margin-bottom: 8%;
+    width: 98%;
+    padding: 3%;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+    background-color: rgba(173, 216, 230,0.9);
     font-size: 110%;
 }
+.input_section h2{
+    text-align: center;
+    margin-bottom: 2.5%;
+    font-size: 125%;
+}
 
+label{
+    font-size: 120%;
+}
 
-.input_section > form > .input > input {
-    display: block;
+#inputBookTitle, #inputBookAuthor, #inputBookYear{
     width: 100%;
-    padding: 8px;
-    border-radius: 5px;
+    padding: 2% 5%;
+    border-radius: 10px;
+    border: 2px solid white;
+    font-size: 100%;
+    margin-bottom: 3%;
+    background-color: #e8f0fe;
+   
+}
+#inputBookTitle:focus, #inputBookAuthor:focus, #inputBookYear:focus{
+    outline: none;
+    border: 2px solid gray;
 }
 
-
-
-.input_section > form > .input > label {
-    color: cornsilk;
+#bookSubmit{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3.5%;
+    padding: 4%;
+    width: 70%;
+    font-size: 70%;
     font-weight: bold;
-}
-
-.input_section > form > .input_inline {
-    margin: 12px 0;
-    display: flex;
-    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #e8f0fe;
 }
 
 #result{
     display: flex;
-    flex-direction: row;
-    padding-bottom: 3%;
-    padding-top: 1%;
+    flex-direction: column;
 }
-
-.book_shelf {
-   margin: auto;
-    
-    border: 0 solid black;
-    width: 45%;
-    box-shadow: 8px 8px 8px black;
-    border-radius: 10px;
-    background-color: rgb(33, 34, 34);
-    padding: 1% 0 2% 0;
-    transition: 0.5s;
-    
-}
-
-.book_shelf:hover{
-    transform: scale(1.05);
-}
-
-.book_shelf > h2 {
-    color: cornsilk;
+.book_shelf h2{
+    font-size: 140%;
     text-align: center;
-    border-bottom: 3px solid cornsilk;
     padding-bottom: 2%;
-    
-    
 }
 
-.book_shelf > .book_list {
-    padding: 16px;
+.book_list{
+   overflow:scroll;
+    overflow-x: hidden;
+    border: 4px solid lightblue;
+    width: 90%;
+    height: 300px;
+    margin: auto;
+    margin-bottom: 8%;
+    padding: 5%;
+    border-radius: 10px;
+    background-color: rgba(232, 240, 254,0.9);
 }
 
 .item {
-    color: cornsilk;
-    padding-top:2% ;
-    padding-bottom: 3%;
-    border-bottom: 3px solid cornsilk;
+    border: 2px solid #e8f0fe;
+    border-radius: 10px;
+    padding: 5%;
+    margin-bottom: 5%;
+    background-color: lightblue;
     text-align: center;
-   
-  
 }
-.item> .inner{
-    margin: auto;
-    padding-bottom: 3%;
+
+.inner p:nth-child(1){
+    font-size: 130%;
+    font-weight: bold;
 }
-.inner>h2{
-    text-decoration: underline;
-    padding-bottom: 3%;
+
+.inner p:nth-child(2), .inner p:nth-child(3){
+    font-size: 100%;
 }
-.selesai-dibaca,.blm-selesai-dibaca {
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 1.5%;
-    background-color: rgb(70, 71, 71);
-    color: cornsilk;
-    box-shadow: 3px 3px 4px black;
-    transition: 1s;
+
+.item button{
+    padding: 2%;
+    margin: 10% 0 2% 0;
+    color:#e8f0fe ;
+    font-weight: bold;
+    border-radius: 5px;
     cursor: pointer;
 }
-
-
-
-
-.hapus-button {
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 1.5%;
-    background-color: rgb(70, 71, 71);
-    color: cornsilk;
-    box-shadow: 3px 3px 4px black;
-    margin-left: 3%;
-    transition: 1s;
-    cursor: pointer;
+.item .selesai-dibaca{
+    background-color: lime;
 }
-.selesai-dibaca:hover, .blm-selesai-dibaca:hover{
-   color:cornsilk;
-    background-color: green;
-    cursor: pointer;
+.item .blm-selesai-dibaca{
+    background-color: orange;
+    
 }
-
-.hapus-button:hover{
-    color:cornsilk;
+.item .hapus-button{
     background-color: red;
-    cursor: pointer;
+    margin-left: 5%;
 }
 
 
+@media(min-width:1000px){
+    .head_bar{
+       padding: 1% 0;
+    }
+
+    .input_section{
+       margin-top: 1.5%;
+        padding: 1%;
+        width: 50%;
+    }
+    .input_section h2{
+        text-align: center;
+        margin-bottom: 2%;
+        font-size: 180%;
+    }
+    label{
+        font-size: 130%;
+    }
+    #inputBookTitle, #inputBookAuthor, #inputBookYear{
+        width: 100%;
+        padding: 1% 2%;
+        margin-bottom: 2%;
+        border-radius: 10px;
+      
+    }
+    #bookSubmit{
+        margin-top: 3%;
+        padding: 2%;
+        width: 50%;
+        font-size: 100%;
+    }
+    #result{
+        display: flex;
+        flex-direction: row;
+       
+        margin-top:-5% ;
+    }
+    .book_shelf {
+        flex-basis:50%;
+    }
+    .book_shelf h2{
+        font-size: 170%;
+       padding-bottom: 1%;
+    }
+    .book_list{
+        width: 90%;
+        height: 400px;
+        margin-bottom: 5%;
+        padding: 2%;
+    }
+
+    .item {
+       padding: 3% 5%;
+       margin-bottom: 2.5%;
+        
+    }
+
+    .inner p:nth-child(1){
+        font-size: 150%;
+    }
+
+    .inner p:nth-child(2), .inner p:nth-child(3){
+        font-size: 120%;
+        
+    }
+
+    .item button{
+       margin: 4% 0 2% 0;
+       border-radius: 10px;
+    }
+
+}
 
 
