@@ -6,13 +6,16 @@ const BOOKSHELF_ITEMID = 'itemId';
 
 function makeBookShelf(datatitle, dataauthor, datayear,isCompleted ){
     const textTitle = document.createElement("p");
+    textTitle.classList.add('data-title')
     textTitle.innerText = datatitle;
 
     const textAuthor = document.createElement("p");
-    textAuthor.innerHTML= `<b>Author: </b>`+dataauthor;
+    textAuthor.classList.add('data-author')
+    textAuthor.innerHTML= `<h4>Author: </h4><p>${dataauthor}</p>`;
     
     const textYear = document.createElement("p");
-    textYear.innerHTML = `<b>Tahun: </b>`+datayear;
+    textYear.classList.add('data-year')
+    textYear.innerHTML = `<b>Tahun: </b>`+`<p>${datayear}</p>`;
 
     const textContainer = document.createElement("div");
     textContainer.classList.add("inner")
@@ -47,7 +50,7 @@ submitButton.addEventListener('click', function(){
         const bookTitle = document.getElementById("inputBookTitle").value;
         const bookAuthor = document.getElementById("inputBookAuthor").value;
         const bookYear = document.getElementById("inputBookYear").value;
-        const addbookshelf = makeBookShelf(bookTitle,bookAuthor,bookYear,true);
+        const addbookshelf = makeBookShelf(bookTitle,bookAuthor,bookYear,false);
         
         const bookshelfObject = composeBookShelfObject(bookTitle,bookAuthor,bookYear,true);
         addbookshelf[BOOKSHELF_ITEMID] = bookshelfObject.id;
@@ -57,6 +60,7 @@ submitButton.addEventListener('click', function(){
            updateDataToStorage();
             
     }else {
+       
         const belumSelesai = document.getElementById(BELUM_SELESAI_BACA);
         const bookTitle = document.getElementById("inputBookTitle").value;
         const bookAuthor = document.getElementById("inputBookAuthor").value;
@@ -78,13 +82,14 @@ submitButton.addEventListener('click', function(){
 function addTaskToSelesaiBaca(taskElement){
     const selesaiBacaList = document.getElementById(SUDAH_SELESAI_BACA);
     
-    const taskTitle = taskElement.querySelector('p').innerText;
-    const taskAuthor = taskElement.querySelector('.inner > p').innerText;
-    const taskYear = taskElement.querySelector('.inner > p').innerText;
-    const  bookShelf= makeBookShelf(taskTitle, taskAuthor, taskYear, true ) ;
-
+    const taskTitle = taskElement.querySelector('.data-title').innerText;
+    const taskAuthor = taskElement.querySelector('.data-author > p').innerText;
+    const taskYear = taskElement.querySelector('.data-year > p').innerText;
+    
+    const  bookShelf= makeBookShelf(taskTitle, taskAuthor, taskYear,true) ;
     const bookshelf = findBookShelf(taskElement[BOOKSHELF_ITEMID]);
     bookshelf.isCompleted = true;
+   
     bookShelf[BOOKSHELF_ITEMID]=bookshelf.id;
     
     selesaiBacaList.append(bookShelf);
@@ -113,13 +118,15 @@ function selesaiButton(){
 
 function addTaskToBelumSelesaiBaca(taskElement){
     const belumBacaList = document.getElementById(BELUM_SELESAI_BACA);
-    const taskTitle = taskElement.querySelector('p').innerText;
-    const taskAuthor = taskElement.querySelector('.inner > p').innerText;
-    const taskYear = taskElement.querySelector('.inner > p').innerText;
+    const taskTitle = taskElement.querySelector('.data-title').innerText;
+    const taskAuthor = taskElement.querySelector('.data-author > p').innerText;
+    const taskYear = taskElement.querySelector('.data-year > p').innerText;
+    
+    
     const bookShelf= makeBookShelf(taskTitle,taskAuthor,taskYear,false);
-   
     const bookshelf = findBookShelf(taskElement[BOOKSHELF_ITEMID]);
     bookshelf.isCompleted = false;
+    
     bookShelf[BOOKSHELF_ITEMID]= bookshelf.id;
     
     belumBacaList.append(bookShelf);
@@ -148,6 +155,7 @@ function blmSelesaiButton(){
 
 
 function konfirmasiHapus(taskElement){
+   
     Swal.fire({
         title: 'Apakah yakin dihapus?',
         text: "Anda tidak akan dapat mengembalikan ini!",
@@ -158,16 +166,18 @@ function konfirmasiHapus(taskElement){
         confirmButtonText: 'Ya, hapus!',
         cancelButtonText: 'Batalkan'
       }).then((result) => {
+        
         if(result.isConfirmed) {
             const bookShelfPosition = findBookShelfIndex(taskElement[BOOKSHELF_ITEMID]);
-            bookShelf.splice(bookShelfPosition, 1);
+            bookShelf.splice(bookShelfPosition, 4);
             taskElement.remove()
             updateDataToStorage();
             Swal.fire(
                 'Dihapus!',
                 'File Anda telah dihapus.',
                 'success'
-              )
+            )
+            console.log('Data Dihapus')
         }
          
         

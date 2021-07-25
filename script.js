@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener('ondatasaved', () =>{
-    console.log('Data Berhasil disimpan')
+    
 });
 
 document.addEventListener('ondataloaded',() =>{
